@@ -14,7 +14,5 @@ snap install yq
 
 ## Usage example
 ```bash
-chmod u+x templating.sh
-
 ./templating.sh -i=ghcr.io/subspace/node:gemini-1b-2022-jun-18 -cp=in-peers -cv=100 -cpr=reserved-only
 ```
