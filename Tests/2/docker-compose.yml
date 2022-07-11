@@ -1,0 +1,14 @@
+version: "3.5"
+
+services:
+  get_balancejs:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: getbalancejs
+    deploy:
+      replicas: 10
+    volumes:
+      - ./getBalanceLoop.js:/app/getBalanceLoop.js
+#    command: /bin/sh -c 'while true; do sleep 2; df -h; done'
+    command: /bin/sh -c 'node /app/getBalanceLoop.js'
