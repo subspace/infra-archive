@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  python_ws_max:
+    #container_name: python_ws_chainhead
+    image: python_ws_max
+    deploy: 
+      replicas: 100
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./stress_threads.py:/app/stress_threads.py
+#      - ./runtime_types.json:/app/runtime_types.json
+    #command: /bin/sh -c 'while true; do sleep 2; df -h; done'
+    #command: /bin/sh -c 'while true; do sleep 3600;  python3 -u /app/DepCheck.py; done'
+    command: /bin/sh -c 'python3 -u /app/stress_threads.py'
